@@ -1,4 +1,4 @@
-import express from "express"
+import express from "express";
 
 import { signup, login, logout, updateProfile } from "../controllers/auth.controller.js";
 import { protectedRoute } from "../middleware/auth.middleware.js";
