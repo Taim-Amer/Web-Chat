@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken"
-import User from "../models/user.model"
+import User from "../models/user.model.js"
 
 export const protectedRoute = async (req, res, next) => {
     try{
@@ -18,7 +18,7 @@ export const protectedRoute = async (req, res, next) => {
         req.user = user
 
         next()
-        
+
     } catch(error){
         console.log("Error in protectedRoute middleware", error.message)
     }
