@@ -46,8 +46,19 @@ export const sendMessage = async (req, res) => {
             imageUrl = uploadResponse.secure_url
         }
 
-        const new
-    } catch(error){
+        const newMessage = new Message({
+            senderId,
+            receiverId,
+            text,
+            image,
+        })
 
+        await newMessage.save()
+
+        // ToDo: realtime functionality goes here => Socket.io
+        res.status(201).json(newMessage)
+    } catch(error){
+        console.log("Error in senMessage controller", error.message)
+        res.status(500).json({message: "Internal server error"})
     }
 }
